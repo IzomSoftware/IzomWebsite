@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Izom.Net Global - About Us</title>
+    <title>Izom.Net Global - Contact Us</title>
     <link rel="icon" href="/assets/izom.jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -15,7 +15,7 @@
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center space-x-2">
                     <div class="w-10 h-10 flex items-center justify-center">
-                        <img src="/assets/izom.jpeg"></img>
+                        <img src="/assets/izom.jpeg" alt="Izom.Net Logo" class="rounded-full">
                     </div>
                     <span class="text-2xl font-bold">Izom.Net Global</span>
                 </div>
@@ -46,36 +46,35 @@
         </div>
     </nav>
 
-    <section id="about" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="blob bg-blue-500 w-96 h-96 rounded-full top-20 right-0"></div>
-        <div class="blob bg-purple-500 w-80 h-80 rounded-full bottom-20 left-0 animation-delay-2000"></div>
+    <section id="contact" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="blob bg-blue-500 w-96 h-96 rounded-full top-20 right-0 opacity-30 blur-3xl absolute"></div>
+        <div class="blob bg-purple-500 w-80 h-80 rounded-full bottom-20 left-0 animation-delay-2000 opacity-30 blur-3xl absolute"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-5xl font-bold mb-6">
-                    About <span class="gradient-text">Izom.Net</span>
+                    Contact <span class="gradient-text">Izom.Net</span>
                 </h1>
                 <p class="text-xl text-slate-400 mb-16">
-                    We’re engineers, designers, and problem-solvers building reliable
-                    solutions for modern businesses.
+                    We're available for you at any time. You can contact us using:
                 </p>
-                <div class="grid md:grid-cols-3 gap-8 mt-16">
-                    <div class="glass p-8 card-hover rounded-2xl">
-                        <h3 class="text-xl font-bold mb-3">Mission</h3>
-                        <p class="text-slate-400">
-                            Deliver practical, high-quality things.
-                        </p>
-                    </div>
-                    <div class="glass p-8 card-hover rounded-2xl">
-                        <h3 class="text-xl font-bold mb-3">Vision</h3>
-                        <p class="text-slate-400">
-                            Build technology that actually matters.
-                        </p>
-                    </div>
-                    <div class="glass p-8 card-hover rounded-2xl">
-                        <h3 class="text-xl font-bold mb-3">Values</h3>
-                        <p class="text-slate-400">Clarity, reliability, performance, and trust.</p>
-                    </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12">
+                    <a href="https://github.com/IzomSoftware" class="glass p-6 card-hover rounded-2xl flex flex-col items-center justify-center gap-3 group">
+                        <i data-lucide="github" class="w-10 h-10 text-slate-300 group-hover:text-white transition-colors"></i>
+                        <span class="font-semibold">GitHub</span>
+                    </a>
+                    <a href="https://t.me/IzomDotNet" class="glass p-6 card-hover rounded-2xl flex flex-col items-center justify-center gap-3 group">
+                        <i data-lucide="send" class="w-10 h-10 text-slate-300 group-hover:text-white transition-colors"></i>
+                        <span class="font-semibold">Telegram</span>
+                    </a>
+                    <a href="https://instagram.com/IzomDotNet" class="glass p-6 card-hover rounded-2xl flex flex-col items-center justify-center gap-3 group">
+                        <i data-lucide="instagram" class="w-10 h-10 text-slate-300 group-hover:text-white transition-colors"></i>
+                        <span class="font-semibold">Instagram</span>
+                    </a>
+                    <a href="https://discord.gg/BzY7hf2ACD" class="glass p-6 card-hover rounded-2xl flex flex-col items-center justify-center gap-3 group">
+                        <i data-lucide="gamepad-2" class="w-10 h-10 text-slate-300 group-hover:text-white transition-colors"></i>
+                        <span class="font-semibold">Discord</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -87,7 +86,7 @@
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-2 mb-4">
                         <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <img src="/assets/izom.jpeg"></img>
+                            <img src="/assets/izom.jpeg" alt="Izom.Net Logo" class="w-8 h-8 rounded-md">
                         </div>
                         <span class="text-2xl font-bold">Izom.Net</span>
                     </div>
@@ -132,6 +131,6 @@
     </footer>
 
     <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/about.js"></script>
+    <script src="/assets/js/contact-us.js"></script>
 </body>
 </html>

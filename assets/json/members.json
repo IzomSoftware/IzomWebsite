@@ -1,0 +1,23 @@
+[
+  {
+    "name": "BuffOvrFlw",
+    "role": "CEO, Founder & Project Leader",
+    "bio": "Visionary leader driving the strategic direction of Izom.Net with over 6 years of software/systems engineering experience.",
+    "pic": "/assets/img/BuffOvrFlw.png",
+    "color": "text-blue-400"
+  },
+  {
+    "name": "TheBigException",
+    "role": "Developer & Project Manager",
+    "bio": "One of our talented individuals who play a big role in our projects. Cyber Operator & Full-Stack Architect.",
+    "pic": "/assets/img/TheBigException.png",
+    "color": "text-blue-400"
+  },
+  {
+    "name": "Reidi",
+    "role": "Developer",
+    "bio": "One of our talented individuals.",
+    "pic": "/assets/img/Reidi.jpeg",
+    "color": "text-blue-400"
+  }
+]

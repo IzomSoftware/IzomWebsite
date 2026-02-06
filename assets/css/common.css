@@ -60,6 +60,10 @@ body {
   transition: opacity 0.2s;
 }
 
+.txt-primary {
+  color: linear-gradient(135deg, var(--blue), var(--purple));
+}
+
 .btn-primary:hover {
   opacity: 0.9;
 }

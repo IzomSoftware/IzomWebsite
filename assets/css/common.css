@@ -1,0 +1,140 @@
+:root {
+  --bg-dark: #0f172a;
+  --bg-dark-2: #1e293b;
+  --border-dark: #334155;
+  --blue: #3b82f6;
+  --purple: #8b5cf6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background: var(--bg-dark);
+  color: #fff;
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--bg-dark),
+    var(--bg-dark-2),
+    var(--bg-dark)
+  );
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 1rem;
+}
+
+.card-hover {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 45px rgba(59, 130, 246, 0.18);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border: 1px solid var(--border-dark);
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+
+.btn-outline:hover {
+  background: rgba(51, 65, 85, 0.5);
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.blob {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: blob 7s infinite;
+  z-index: 0;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+@keyframes blob {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.nav-link {
+  color: #cbd5e1;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.mobile-link {
+  display: block;
+  color: #cbd5e1;
+}
+
+.mobile-link:hover {
+  color: #fff;
+}
+
+.divider {
+  width: 1px;
+  height: 3rem;
+  background: #334155;
+}
+
+.stat {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}

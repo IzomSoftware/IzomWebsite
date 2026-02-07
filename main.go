@@ -37,13 +37,42 @@ func main() {
 	configuration.SetupConfig("config.toml")
 
   // add responses 
-	httpscore.Responses["index"] = httpscore.Response{
+	httpscore.Responses["home"] = httpscore.Response{
 		Fn: func(c *gin.Context) {
 			c.HTML(http.StatusOK, "home.html", nil)
 		},
 		Method:    "GET",
 		Addresses: []string{"/", "/home"},
 	}
+	httpscore.Responses["about-us"] = httpscore.Response{
+		Fn: func(c *gin.Context) {
+			c.HTML(http.StatusOK, "about-us.html", nil)
+		},
+		Method:    "GET",
+		Addresses: []string{"/", "/about-us"},
+	}
+	httpscore.Responses["colleagues"] = httpscore.Response{
+		Fn: func(c *gin.Context) {
+			c.HTML(http.StatusOK, "colleagues.html", nil)
+		},
+		Method:    "GET",
+		Addresses: []string{"/", "/colleagues"},
+	}
+	httpscore.Responses["contact-us"] = httpscore.Response{
+		Fn: func(c *gin.Context) {
+			c.HTML(http.StatusOK, "contact-us.html", nil)
+		},
+		Method:    "GET",
+		Addresses: []string{"/", "/contact-us"},
+	}
+	httpscore.Responses["members"] = httpscore.Response{
+		Fn: func(c *gin.Context) {
+			c.HTML(http.StatusOK, "members.html", nil)
+		},
+		Method:    "GET",
+		Addresses: []string{"/", "/members"},
+	}
+
 
   // first argument is templateDir and second one is assetsDir
 	HttpsServer.ListenAndServe("assets/templates/*", "/assets")

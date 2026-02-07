@@ -49,28 +49,28 @@ func main() {
 			c.HTML(http.StatusOK, "about-us.html", nil)
 		},
 		Method:    "GET",
-		Addresses: []string{"/", "/about-us"},
+		Addresses: []string{"/about-us/", "/about-us"},
 	}
 	httpscore.Responses["colleagues"] = httpscore.Response{
 		Fn: func(c *gin.Context) {
 			c.HTML(http.StatusOK, "colleagues.html", nil)
 		},
 		Method:    "GET",
-		Addresses: []string{"/", "/colleagues"},
+		Addresses: []string{"/colleagues/", "/colleagues"},
 	}
 	httpscore.Responses["contact-us"] = httpscore.Response{
 		Fn: func(c *gin.Context) {
 			c.HTML(http.StatusOK, "contact-us.html", nil)
 		},
 		Method:    "GET",
-		Addresses: []string{"/", "/contact-us"},
+		Addresses: []string{"/contact-us/", "/contact-us"},
 	}
 	httpscore.Responses["members"] = httpscore.Response{
 		Fn: func(c *gin.Context) {
 			c.HTML(http.StatusOK, "members.html", nil)
 		},
 		Method:    "GET",
-		Addresses: []string{"/", "/members"},
+		Addresses: []string{"/members/", "/members"},
 	}
 
 

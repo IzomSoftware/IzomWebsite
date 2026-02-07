@@ -4,6 +4,7 @@
     "role": "CEO, Founder & Project Leader",
     "bio": "Visionary leader driving the strategic direction of Izom.Net with over 6 years of software/systems engineering experience.",
     "pic": "/assets/img/BuffOvrFlw.png",
+    "github": "https://github.com/BuffOvrFlw",
     "color": "text-blue-400"
   },
   {
@@ -11,6 +12,7 @@
     "role": "Developer & Project Manager",
     "bio": "One of our talented individuals who play a big role in our projects. Cyber Operator & Full-Stack Architect.",
     "pic": "/assets/img/TheBigException.png",
+    "github": "https://github.com/tester2024",
     "color": "text-blue-400"
   },
   {
@@ -18,6 +20,7 @@
     "role": "Developer",
     "bio": "One of our talented individuals.",
     "pic": "/assets/img/Reidi.jpeg",
+    "github": "https://github.com/R31Dyx",
     "color": "text-blue-400"
   }
 ]

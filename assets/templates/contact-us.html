@@ -7,48 +7,48 @@
     <link rel="icon" href="/assets/izom.jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/common.css?v=2">
 </head>
-<body class="hero-gradient text-white overflow-x-hidden">
+<body class="hero-gradient text-white overflow-x-hidden min-h-screen">
     <nav class="fixed w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700/50 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 flex items-center justify-center">
-                        <img src="/assets/izom.jpeg" alt="Izom.Net Logo" class="rounded-full">
+            <div class="flex justify-between items-center h-20 min-h-0">
+                <a href="/" class="nav-brand flex items-center space-x-2 min-w-0 flex-1 no-underline text-white hover:text-white">
+                    <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <img src="/assets/izom.jpeg" alt="Izom" class="max-w-full max-h-full object-contain"></img>
                     </div>
-                    <span class="text-2xl font-bold">Izom.Net Global</span>
-                </div>
+                    <span class="text-xl sm:text-2xl font-bold truncate">Izom.Net Global</span>
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="home" class="nav-link">Home</a>
-                    <a href="about-us" class="nav-link">About Us</a>
-                    <a href="colleagues" class="nav-link">Colleagues</a>
-                    <a href="members" class="nav-link">Members</a>
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/about-us" class="nav-link">About Us</a>
+                    <a href="/colleagues" class="nav-link">Colleagues</a>
+                    <a href="/members" class="nav-link">Members</a>
                     <a href="https://software.izom.net" class="nav-link">Software</a>
                     <a href="https://systems.izom.net" class="nav-link">Systems</a>
-                    <a href="contact-us" class="btn-primary px-6 py-2 text-white">Contact Us</a>
+                    <a href="/contact-us" class="btn-primary px-6 py-2 text-white">Contact Us</a>
                 </div>
-                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                <button type="button" class="md:hidden text-white" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
-        <div id="mobileMenu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-800 border-t border-slate-700" aria-hidden="true">
             <div class="px-4 py-4 space-y-4">
-                <a href="home" class="mobile-link" onclick="closeMobileMenu()">Home</a>
-                <a href="about-us" class="mobile-link" onclick="closeMobileMenu()">About Us</a>
-                <a href="colleagues" class="mobile-link" onclick="closeMobileMenu()">Colleagues</a>
-                <a href="members" class="mobile-link" onclick="closeMobileMenu()">Members</a>
+                <a href="/" class="mobile-link" onclick="closeMobileMenu()">Home</a>
+                <a href="/about-us" class="mobile-link" onclick="closeMobileMenu()">About Us</a>
+                <a href="/colleagues" class="mobile-link" onclick="closeMobileMenu()">Colleagues</a>
+                <a href="/members" class="mobile-link" onclick="closeMobileMenu()">Members</a>
                 <a href="https://software.izom.net" class="mobile-link" onclick="closeMobileMenu()">Software</a>
                 <a href="https://systems.izom.net" class="mobile-link" onclick="closeMobileMenu()">Systems</a>
-                <a href="contact-us" class="block btn-primary px-6 py-2 text-white text-center" onclick="closeMobileMenu()">Contact Us</a>
+                <a href="/contact-us" class="block btn-primary px-6 py-2 text-white text-center" onclick="closeMobileMenu()">Contact Us</a>
             </div>
         </div>
     </nav>
 
     <section id="contact" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="blob bg-blue-500 w-96 h-96 rounded-full top-20 right-0 opacity-30 blur-3xl absolute"></div>
-        <div class="blob bg-purple-500 w-80 h-80 rounded-full bottom-20 left-0 animation-delay-2000 opacity-30 blur-3xl absolute"></div>
+        <div class="blob bg-blue-500 w-96 h-96 rounded-full top-20 right-0 opacity-20"></div>
+        <div class="blob bg-purple-500 w-80 h-80 rounded-full bottom-20 left-0 animation-delay-2000 opacity-20"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
             <div class="max-w-4xl mx-auto text-center">
@@ -97,13 +97,13 @@
                 <div>
                     <h4 class="font-semibold mb-4">Quick Links</h4>
                     <div class="space-y-2">
-                        <a href="home" class="block text-slate-400 hover:text-white transition-colors">Home</a>
-                        <a href="about-us" class="block text-slate-400 hover:text-white transition-colors">About Us</a>
-                        <a href="colleagues" class="block text-slate-400 hover:text-white transition-colors">Colleagues</a>
-                        <a href="members" class="block text-slate-400 hover:text-white transition-colors">Members</a>
+                        <a href="/" class="block text-slate-400 hover:text-white transition-colors">Home</a>
+                        <a href="/about-us" class="block text-slate-400 hover:text-white transition-colors">About Us</a>
+                        <a href="/colleagues" class="block text-slate-400 hover:text-white transition-colors">Colleagues</a>
+                        <a href="/members" class="block text-slate-400 hover:text-white transition-colors">Members</a>
                         <a href="https://software.izom.net" class="block text-slate-400 hover:text-white transition-colors">Software</a>
                         <a href="https://systems.izom.net" class="block text-slate-400 hover:text-white transition-colors">Systems</a>
-                        <a href="contact-us" class="block gradient-text">Contact Us</a>
+                        <a href="/contact-us" class="block gradient-text">Contact Us</a>
                     </div>
                 </div>
                 <div>

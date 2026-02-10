@@ -1,90 +1,81 @@
+const mobileMenu = document.getElementById("mobileMenu");
+const menuButton = document.querySelector('button[aria-controls="mobileMenu"]');
+const nav = document.querySelector("nav");
+
+function toggleMobileMenu() {
+  if (!mobileMenu || !menuButton) return;
+  mobileMenu.classList.toggle("hidden");
+  const isOpen = !mobileMenu.classList.contains("hidden");
+
+  mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+  menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+function closeMobileMenu() {
+  if (!mobileMenu || !menuButton) return;
+  mobileMenu.classList.add("hidden");
+  mobileMenu.setAttribute("aria-hidden", "true");
+  menuButton.setAttribute("aria-expanded", "false");
+}
+
+function updateText(elementId, text) {
+  document.querySelectorAll(["${elementId}"]).forEach((el) => {
+    el.classList.add("opacity-0", "transition-opacity", "duration-1000");
+    setTimeout(() => {
+      el.innerText = text;
+      el.classList.remove("opacity-0");
+    }, 200);
+  });
+}
+
+function animateCounter(elementId, targetValue, duration = 2000) {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+  const frameDuration = 1000 / 60;
+  const totalFrames = Math.round(duration / frameDuration);
+  const easeOutQuad = (t) => t * (2 - t);
+  let frame = 0;
+
+  const counter = setInterval(() => {
+    frame++;
+    element.textContent = Math.round(
+      targetValue * easeOutQuad(frame / totalFrames),
+    );
+
+    if (frame >= totalFrames) {
+      clearInterval(counter);
+      element.textContent = targetValue;
+    }
+  }, frameDuration);
+}
+
+async function loadJsonGrid(url, containerId, cardTemplate) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    container.innerHTML = data.map(cardTemplate).join("");
+    lucide.createIcons();
+  } catch (error) {
+    console.error(`Error loading data for ${containerId}:`, error);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  function toggleMobileMenu() {
-    const menu = document.getElementById("mobileMenu");
-    const button = document.querySelector('button[aria-controls="mobileMenu"]');
-    const wasOpen = !menu.classList.contains("hidden");
-    menu.classList.toggle("hidden");
-    const isNowOpen = !wasOpen;
-    menu.setAttribute("aria-hidden", isNowOpen ? "false" : "true");
-    if (button) button.setAttribute("aria-expanded", isNowOpen ? "true" : "false");
-  }
+  globalThis.toggleMobileMenu = toggleMobileMenu;
+  globalThis.closeMobileMenu = closeMobileMenu;
+  globalThis.updateText = updateText;
+  globalThis.animateCounter = animateCounter;
+  globalThis.loadJsonGrid = loadJsonGrid;
 
-  function closeMobileMenu() {
-    const menu = document.getElementById("mobileMenu");
-    const button = document.querySelector('button[aria-controls="mobileMenu"]');
-    menu.classList.add("hidden");
-    menu.setAttribute("aria-hidden", "true");
-    if (button) button.setAttribute("aria-expanded", "false");
-  }
-
-  function updateText(elementId, text) {
-    const elements = document.querySelectorAll(`[id="${elementId}"]`);
-    
-    elements.forEach((el) => {
-      el.classList.add("opacity-0", "transition-opacity", "duration-1000");
-      
-      setTimeout(() => {
-        el.innerText = text;
-        el.classList.remove("opacity-0");
-      }, 200);
-    });
-  }
-
-  function animateCounter(elementId, targetValue, duration = 2000) {
-    const frameDuration = 1000 / 60;
-    const totalFrames = Math.round(duration / frameDuration);
-    const easeOutQuad = (t) => t * (2 - t);
-
-    let frame = 0;
-    const counter = setInterval(() => {
-      frame++;
-      const counterElement = document.getElementById(elementId);
-      if (counterElement) {
-        counterElement.textContent = Math.round(
-          targetValue * easeOutQuad(frame / totalFrames),
-        );
-      }
-      if (frame >= totalFrames) {
-        clearInterval(counter);
-        const finalElement = document.getElementById(elementId);
-        if (finalElement) finalElement.textContent = targetValue;
-      }
-    }, frameDuration);
-  }
-
-  async function loadJsonGrid(url, containerId, cardTemplate) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-
-      container.innerHTML = data.map(cardTemplate).join("");
-      lucide.createIcons();
-    } catch (error) {
-      console.error(`Error loading data for ${containerId}:`, error);
-    }
-  }
-
-  window.toggleMobileMenu = toggleMobileMenu;
-  window.closeMobileMenu = closeMobileMenu;
-  window.updateText = updateText;
-  window.animateCounter = animateCounter;
-  window.loadJsonGrid = loadJsonGrid;
-
-  window.addEventListener("scroll", function () {
-    const nav = document.querySelector("nav");
-    if (window.scrollY > 50) {
-      nav.classList.add("bg-slate-900/95");
-      nav.classList.remove("bg-slate-900/80");
-    } else {
-      nav.classList.remove("bg-slate-900/95");
-      nav.classList.add("bg-slate-900/80");
-    }
+  window.addEventListener("scroll", () => {
+    if (!nav) return;
+    const isScrolled = window.scrollY > 50;
+    nav.classList.toggle("bg-slate-900/95", isScrolled);
+    nav.classList.toggle("bg-slate-900/80", !isScrolled);
   });
 
-  // Smooth scroll samo za in-page hash linkove (npr. #section); ne utiče na interne putanje (/about-us, /contact-us, itd.)
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
@@ -92,10 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   });

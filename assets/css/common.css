@@ -42,6 +42,7 @@ body {
   backdrop-filter: blur(12px);
   border: 1px solid rgba(51, 65, 85, 0.5);
   border-radius: 1rem;
+  overflow: hidden;
 }
 
 .card-hover {
@@ -58,8 +59,19 @@ body {
   border-radius: 9999px;
   font-weight: 600;
   transition: opacity 0.2s;
+  overflow: hidden;
 }
 
+.hero-cta-group {
+  width: 100%;
+}
+
+.hero-cta {
+  width: max-content;
+  min-width: 220px;
+}
+
+/* //Trash - We Dont Use It */
 .txt-primary {
   color: linear-gradient(135deg, var(--blue), var(--purple));
 }
@@ -68,6 +80,7 @@ body {
   opacity: 0.9;
 }
 
+/* //Trash - We Dont Use It */
 .btn-outline {
   border: 1px solid var(--border-dark);
   border-radius: 9999px;
@@ -142,13 +155,170 @@ body {
   color: #fff;
 }
 
+/* //Trash - We Dont Use It */
 .divider {
   width: 1px;
   height: 3rem;
   background: #334155;
 }
 
+/* //Trash - We Dont Use It */
 .stat {
   font-size: 0.875rem;
   color: #94a3b8;
+}
+
+.code-block-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.code-block-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.code-block-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.9);
+  border-radius: 999px;
+}
+
+.hero-code-stack {
+  position: relative;
+  z-index: 5;
+}
+
+.hero-code-card {
+  overflow: hidden;
+}
+
+.hero-badge {
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .hero-code-stack {
+    margin-top: 2.5rem;
+  }
+}
+
+.hero-badge {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ship-badge {
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.that-easy-badge {
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+  .hero-grid,
+  .hero-grid > * {
+    min-width: 0;
+  }
+
+  .hero-content {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  #home h1,
+  #home .hero-content p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+  }
+
+  #home h1 {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    line-height: 1.2;
+  }
+
+  #home .max-w-7xl {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-code-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    min-width: 0;
+    margin-top: 2.5rem;
+  }
+
+  .hero-code-card {
+    order: 1;
+    width: min(100%, 420px);
+    align-self: stretch;
+  }
+
+  .hero-badge {
+    position: static;
+    order: 0;
+    width: min(100%, 360px);
+    align-self: flex-end;
+  }
+
+  .that-easy-badge {
+    order: 2;
+    align-self: flex-start;
+  }
+
+  .code-block-scroll {
+    margin-right: 0;
+  }
+
+  .btn-primary {
+    padding: 0.85rem 1.75rem;
+  }
+
+  .mobile-link {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    text-align: center;
+  }
+
+  #home {
+    align-items: flex-start;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    overflow-x: hidden;
+  }
+
+  #home .grid {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .hero-cta {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-brand {
+    min-width: 0;
+  }
+
+  nav .max-w-7xl {
+    width: 100%;
+    max-width: 100%;
+  }
 }

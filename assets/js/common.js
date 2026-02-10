@@ -1,12 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   function toggleMobileMenu() {
     const menu = document.getElementById("mobileMenu");
+    const button = document.querySelector('button[aria-controls="mobileMenu"]');
+    const wasOpen = !menu.classList.contains("hidden");
     menu.classList.toggle("hidden");
+    const isNowOpen = !wasOpen;
+    menu.setAttribute("aria-hidden", isNowOpen ? "false" : "true");
+    if (button) button.setAttribute("aria-expanded", isNowOpen ? "true" : "false");
   }
 
   function closeMobileMenu() {
     const menu = document.getElementById("mobileMenu");
+    const button = document.querySelector('button[aria-controls="mobileMenu"]');
     menu.classList.add("hidden");
+    menu.setAttribute("aria-hidden", "true");
+    if (button) button.setAttribute("aria-expanded", "false");
   }
 
   function updateText(elementId, text) {
@@ -76,11 +84,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Smooth scroll samo za in-page hash linkove (npr. #section); ne utiče na interne putanje (/about-us, /contact-us, itd.)
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
+      const href = this.getAttribute("href");
+      if (href === "#") return;
+      const target = document.querySelector(href);
       if (target) {
+        e.preventDefault();
         target.scrollIntoView({
           behavior: "smooth",
           block: "start",

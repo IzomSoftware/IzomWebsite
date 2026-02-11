@@ -1,6 +1,7 @@
 const mobileMenu = document.getElementById("mobileMenu");
 const menuButton = document.querySelector('button[aria-controls="mobileMenu"]');
 const nav = document.querySelector("nav");
+const solutions = ["Software", "Systems", "Technologies", "Networks"];
 
 function toggleMobileMenu() {
   if (!mobileMenu || !menuButton) return;
@@ -19,12 +20,13 @@ function closeMobileMenu() {
 }
 
 function updateText(elementId, text) {
-  document.querySelectorAll(["${elementId}"]).forEach((el) => {
-    el.classList.add("opacity-0", "transition-opacity", "duration-1000");
+    document.querySelectorAll(`#${elementId}`).forEach((el) => {
+    el.classList.add("gradient-text", "opacity-0", "transition-opacity", "duration-1000");
+    
     setTimeout(() => {
       el.innerText = text;
       el.classList.remove("opacity-0");
-    }, 200);
+    }, 1000);
   });
 }
 
@@ -88,5 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  let solutionIndex = 0;
+
+  setInterval(() => {
+    solutionIndex = (solutionIndex + 1) % solutions.length;
+
+    const nextSolution = solutions[solutionIndex];
+
+    globalThis.updateText("solutions", nextSolution);
+  }, 3000);
   lucide.createIcons();
 });

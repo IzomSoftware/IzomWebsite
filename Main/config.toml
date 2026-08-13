@@ -1,19 +1,75 @@
-debug = false
+debug = true
 
-[https_server]
+[http_server]
   enabled = true
   address = "0.0.0.0"
-  port = 2012
-  api_user_agent = "Test Client 1.0/b (Software)"
-  [https_server.tls_configuration]
+  port = 2009
+  template_dir = "./assets/templates/"
+  assets_dir = "./assets/"
+  [http_server.tls_configuration]
     enable = false
     cert_file = "cert.pem"
     key_file = "key.pem"
 
 [database]
-  enabled = false
-  file_location = ""
+  [database.sqlite_configuration]
+    enabled = false
+    database_location = "db.sqlite"
+  [database.mysql_configuration]
+    enabled = false
+    hostname = "127.0.0.1"
+    port = 3306
+    username = "root"
+    password = ""
+    database = "GinWrapper"
+    tls_enabled = true
+    skip_tls_verification = true
+    charset = "utf8mb4"
+    max_open_connections = 151
+    max_idle_connections = 10
+    connections_max_lifetime_seconds = 3600
+    parse_time = true
+  [database.postgresql_configuration]
+    enabled = false
+    hostname = "127.0.0.1"
+    port = 5432
+    username = "postgres"
+    password = ""
+    database = "GinWrapper"
+    ssl_mode = "disable"
+    max_open_connections = 25
+    max_idle_connections = 5
+    connections_max_lifetime_seconds = 3600
+  [database.embedded_redis_configuration]
+    enabled = true
+  [database.dedicated_redis_configuration]
+    enabled = false
+    hostname = "127.0.0.1"
+    port = 6379
+    username = "root"
+    password = ""
+    database = 0
+    pool_size = 20
+    min_idle_connections = 0
+    max_retries = 5
+    pool_timeout = 1
+    dial_timeout = 1
+    read_timeout = 2
+    write_timeout_sec = 3
+    tls_enabled = true
+    skip_tls_verification = true
 
-[tokenizer]
-  tokenizer_secret = ""
-  token_expiration = 0
+[protections]
+  user_pass_api = true
+  api_user_agent = ""
+  [protections.basic_protections]
+    provide = true
+    aggressive = true
+  [protections.jwt_protection]
+    jwt_secret = ""
+    jwt_expiration = 60
+  [protections.ordering_protection]
+    enabled = true
+    [protections.ordering_protection.orders]
+      "/auth" = ["/", "/home"]
+      "/dashboard" = ["/auth"]
